@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "id": "logicalredstone",
+  "version": "${version}",
+
+  "name": "Logical Redstone",
+  "description": "A mod to help with logical redstone",
+  "authors": [
+    "rugmj"
+  ],
+  "contact": {
+    "homepage": "https://fabricmc.net/",
+    "sources": "https://github.com/FabricMC/fabric-example-mod"
+  },
+
+  "license": "MIT",
+  "icon": "assets/tutorialmod/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.rugmj.logicalredstone.LogicalRedstone"
+    ],
+    "client": [
+      "net.rugmj.logicalredstone.LogicalRedstoneClient"
+    ]
+  },
+  "mixins": [],
+
+  "depends": {
+    "fabricloader": ">=0.14.9",
+    "fabric-api": "*",
+    "minecraft": "~1.19",
+    "java": ">=17"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}
