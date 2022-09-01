@@ -14,7 +14,7 @@
   },
 
   "license": "MIT",
-  "icon": "assets/tutorialmod/icon.png",
+  "icon": "assets/logicalredstone/icon.png",
 
   "environment": "*",
   "entrypoints": {
