@@ -7,6 +7,7 @@ import net.fabricmc.fabric.api.client.command.v2.FabricClientCommandSource;
 import net.minecraft.command.CommandRegistryAccess;
 import net.rugmj.logicalredstone.command.BinaryToDecimalCommand;
 import net.rugmj.logicalredstone.command.DecimalToBinaryCommand;
+import net.rugmj.logicalredstone.command.WoolCommand;
 import net.rugmj.logicalredstone.event.KeyInputHandler;
 
 public class LogicalRedstoneClient implements ClientModInitializer {
@@ -21,6 +22,7 @@ public class LogicalRedstoneClient implements ClientModInitializer {
     public static void registerCommands(CommandDispatcher<FabricClientCommandSource> dispatcher, CommandRegistryAccess registryAccess) {
         DecimalToBinaryCommand.register(dispatcher);
         BinaryToDecimalCommand.register(dispatcher);
+        WoolCommand.register(dispatcher);
     }
 }
 
