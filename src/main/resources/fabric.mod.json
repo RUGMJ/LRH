@@ -25,7 +25,9 @@
       "net.rugmj.logicalredstone.LogicalRedstoneClient"
     ]
   },
-  "mixins": [],
+  "mixins": [
+    "logicalredstone.mixins.json"
+  ],
 
   "depends": {
     "fabricloader": ">=0.14.9",
