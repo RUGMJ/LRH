@@ -8,7 +8,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.rugmj.logicalredstone.LogicalRedstone;
 import net.rugmj.logicalredstone.StateManager;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -23,7 +22,6 @@ public class OnPlaceMixin {
 	@Inject(method = "onPlaced", at = @At("HEAD"))
 	public void onPlaced(World world, BlockPos pos, @NotNull BlockState state, @Nullable LivingEntity placer, ItemStack itemStack, CallbackInfo info) {
 
-		LogicalRedstone.LOGGER.info("Placed: " + state.getBlock());
 		if (!StateManager.getAutoDustState()) return;
 		if (state.getBlock().getName().contains(Text.of("wool"))) return;
 		if (!world.getBlockState(pos.up(1)).isAir()) return;
