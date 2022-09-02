@@ -5,6 +5,7 @@ import com.mojang.brigadier.tree.LiteralCommandNode;
 import net.fabricmc.fabric.api.client.command.v2.FabricClientCommandSource;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.client.gui.screen.ingame.InventoryScreen;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
 import net.rugmj.logicalredstone.LogicalRedstone;
@@ -96,21 +97,24 @@ public class WoolCommand {
             return -1;
         }
 
-//        source.getPlayer().giveItemStack(new ItemStack(wool.asItem()));
 
         for (int i = 0; i < 9; i++) {
-            LogicalRedstone.LOGGER.info(String.valueOf(source.getPlayer().getInventory().getStack(i).getName().getString().contains("Wool")));
             if (source.getPlayer().getInventory().getStack(i).getName().getString().contains("Wool")) {
+
                 source.getPlayer().getInventory().setStack(i, new ItemStack(wool.asItem()));
 
             } else if (source.getPlayer().getInventory().getStack(i).getName().getString().contains("Glass")) {
+
                 source.getPlayer().getInventory().setStack(i, new ItemStack(glass.asItem()));
+
             }
         }
 
-
-
+//        Syncs the items in the inventory to the UI
+        source.getClient().setScreen(new InventoryScreen(source.getPlayer()));
+        source.getClient().setScreen(null);
 
         return 1;
     }
+
 }
