@@ -8,7 +8,6 @@ import net.minecraft.block.Blocks;
 import net.minecraft.client.gui.screen.ingame.InventoryScreen;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
-import net.rugmj.logicalredstone.LogicalRedstone;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -20,7 +19,7 @@ import static net.fabricmc.fabric.api.client.command.v2.ClientCommandManager.lit
 public class WoolCommand {
 
     public static void register(CommandDispatcher<FabricClientCommandSource> dispatcher) {
-        LiteralCommandNode<FabricClientCommandSource> colourCommand = dispatcher.register(literal("colour").then(argument("colour", string())
+        LiteralCommandNode<FabricClientCommandSource> colourCommand = dispatcher.register(literal("wool").then(argument("colour", string())
                 .executes(context -> run(context.getSource(), getString(context, "colour")))
                 .suggests((context, builder) -> {
                             builder.suggest("white");
@@ -42,14 +41,11 @@ public class WoolCommand {
 
                             return builder.buildFuture();
                         })));
-        dispatcher.register(literal("color").redirect(colourCommand));
-        dispatcher.register(literal("wool").redirect(colourCommand));
         dispatcher.register(literal("wo").redirect(colourCommand));
 
     }
 
     private static int run (FabricClientCommandSource source, String input) {
-        LogicalRedstone.LOGGER.info("Inputted: {}", input);
         Map<String, Block> woolColours = new HashMap<>();
         woolColours.put("white", Blocks.WHITE_WOOL);
         woolColours.put("orange", Blocks.ORANGE_WOOL);
